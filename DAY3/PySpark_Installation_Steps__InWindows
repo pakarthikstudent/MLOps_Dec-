@@ -1,0 +1,58 @@
+set up PySpark on Windows 11 step by step.
+---------------------------------------------
+## Prerequisites Installation
+
+**Step 1: Install Java (JDK 8 or 11)**
+- Download Java JDK from Oracle's website or adopt OpenJDK
+- Install it (e.g., in   C:\Program Files\Java\jdk-11  )
+- Set environment variables:
+  - Right-click 'This PC' → Properties → Advanced system settings → Environment Variables
+  - Create   JAVA_HOME   variable pointing to your JDK folder (e.g.,   C:\Program Files\Java\jdk-11  )
+  - Add   %JAVA_HOME%\bin   to your Path variable
+
+**Step 2: Install Python**
+- Download Python 3.8 or later from python.org
+- During installation, check "Add Python to PATH"
+- Verify installation: open Command Prompt and type   python --version  
+
+**Step 3: Download Apache Spark**
+- Go to https://spark.apache.org/downloads.html
+- Choose the latest version with "Pre-built for Apache Hadoop"
+- Download and extract to a simple path like   C:\spark  
+
+**Step 4: Install winutils**
+- Download winutils.exe for your Hadoop version from https://github.com/steveloughran/winutils
+- Create folder   C:\hadoop\bin  
+- Place winutils.exe in this folder
+
+## Environment Variables Setup
+
+**Step 5: Set Spark Environment Variables**
+- Open Environment Variables again
+- Create these new variables:
+  -   SPARK_HOME   =   C:\spark   (your Spark location)
+  -   HADOOP_HOME   =   C:\hadoop  
+- Add to Path variable:
+  -   %SPARK_HOME%\bin  
+  -   %HADOOP_HOME%\bin  
+
+## Install PySpark
+
+
+pip install pyspark
+      
+
+## Verify Installation
+
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("test").getOrCreate()
+print(spark.version)
+spark.stop()
+      
+
+## Common Issues
+
+- **Java not found**: Verify JAVA_HOME is set correctly
+- **Permission errors**: Run Command Prompt as Administrator
+- **Hadoop errors**: Ensure winutils.exe has proper permissions (right-click → Properties → Unblock if needed)
