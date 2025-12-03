@@ -11,3 +11,10 @@ airflow version
 ls -t
 airflow db init
 airflow users create --username admin --firstname student --lastname user --role Admin --email test@example.com --password admin
+airflow webserver -p 8080 
+|
+open a broswer -> 127.0.0.1:8080 => Login : admin
+                                    password: admin
+|
+|
+open another terminal -> activate your environment (ex: source lab2/bin/activate) -> airflow scheduler 
