@@ -10,3 +10,4 @@ pip install "apache-airflow == ${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_UR
 airflow version
 ls -t
 airflow db init
+airflow users create --username admin --firstname student --lastname user --role Admin --email test@example.com --password admin
