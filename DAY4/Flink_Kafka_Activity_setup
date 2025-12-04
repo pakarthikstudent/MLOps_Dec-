@@ -9,3 +9,14 @@
 
   After download  unzip the file => tar -xvzf kafka_2.12-2.2.0.tgz
 
+  Start Zookeeper 
+  ----------------
+  bin/zookeeper-server-start.sh  config/zookeeper.properties 
+  Start Kafka broker 
+  -----------------
+  bin/kafka-server-start.sh  config/server.properties
+
+  Create topic
+  ------------
+  bin/kafka-topics.sh --create --topic input-topic --bootstrap-server localhost:9092
+
