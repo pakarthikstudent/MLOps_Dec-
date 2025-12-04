@@ -21,6 +21,40 @@
   bin/kafka-topics.sh --create --topic input-topic --bootstrap-server localhost:9092
 
 
-   pip install pyflink kafka-python
+   pip install apache-pyflink kafka-python
+ -------------------------------------------------------------------------
+
+project directory : Flink_Kafka_demo/
+                      |-> pipeline.py  - main file - Flink job 
+                                         ## Reads messages from Kafka 
+                                         ## Parse as json
+                                         ## Extract data - field(key)
+                                         ## Display 
+
+                      |-> producer.py  -  Kafa producer to send test data
 
 
+  Start Zookeeper 
+  ----------------
+  bin/zookeeper-server-start.sh  config/zookeeper.properties 
+  Start Kafka broker 
+  -----------------
+  bin/kafka-server-start.sh  config/server.properties
+  Create topic
+  ------------
+  bin/kafka-topics.sh --create --topic input-topic --bootstrap-server localhost:9092
+  |
+  |
+  Run flink job
+  ===============
+    |-> python pipeline.py 
+
+   Now open another terminal
+   =========================
+       |-> python producer.py 
+
+  To Verify manually 
+   --------------------
+   Kafka consumer:
+   ===============
+   bin/kafka-console-consumer.sh --topic input-topic --from-beginning --bootstrap-server localhost:9092
