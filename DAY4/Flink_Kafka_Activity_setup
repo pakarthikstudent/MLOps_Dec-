@@ -1,0 +1,9 @@
+
+## Create a new direcotry (ex: mkdir Flink_Kafka_demo)
+  |
+  Go to the Directory => cd Flink_Kafka_demo
+                          |
+        Create Virtual env => python3 -m venv flink_kafka 
+                              source flink_kafka/bin/activate
+                              wget https://archive.apache.org/dist/kafka/2.2.0/kafka_2.12-2.2.0.tgz
+
