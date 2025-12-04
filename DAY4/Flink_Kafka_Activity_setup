@@ -20,3 +20,7 @@
   ------------
   bin/kafka-topics.sh --create --topic input-topic --bootstrap-server localhost:9092
 
+
+   pip install pyflink kafka-python
+
+
