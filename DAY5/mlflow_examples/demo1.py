@@ -1,5 +1,7 @@
+import os
+os.environ["GIT_PYTHON_REFRESH"] = "quiet"
 import mlflow
-
+mlflow.set_tracking_uri("http://127.0.0.1:5000")
 mlflow.set_experiment("my_demo")
 
 with mlflow.start_run():
@@ -9,4 +11,5 @@ with mlflow.start_run():
     
     # Log metrics
     mlflow.log_metric("accuracy", 0.95)
+
     mlflow.log_metric("loss", 0.23)
