@@ -1,0 +1,8 @@
+pip install mlflow 
+
+To run => mlflow ui 
+default port number is 5000
+
+To run customised port number
+mlflow ui --port 3456
+
